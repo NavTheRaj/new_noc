@@ -5,3 +5,7 @@
 .navbar{
 		padding:0;
 }
+
+.leftSideBar,.rightSideBar{
+		height:100vh;
+}
