@@ -24,6 +24,6 @@ if(isset($_POST['add_department'])){
 		}
 }
 else{
-		echo "not clicked";
+		header("location: ../departments.php");
 }
 ?>

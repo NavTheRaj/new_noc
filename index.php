@@ -46,8 +46,8 @@ if(!isset($_SESSION['username'])){
 														</table>
 												</div>
 										</div>
-										<div class="tab-pane fade" id="all_nodes" role="tabpanel"
-												aria-labelledby="all_nodes-tab">
+										<div class="tab-pane fade" id="all_nodes_tables" role="tabpanel"
+												aria-labelledby="all_nodes_tab">
 												<div class="table_responsive">
 														<table class="table" id="all_nodes_table">
 																<thead>

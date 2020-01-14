@@ -1,6 +1,6 @@
 <?php
 require("dbh.inc.php");
-if(isset($_POST['addreasons'])){
+if(isset($_POST['addreason'])){
 		$dept = $_POST['dept'];
 		$reason = $_POST['reason'];
 
@@ -18,6 +18,6 @@ if(isset($_POST['addreasons'])){
 		}
 }
 else{
-		header("location: ../add_reasons.php");
+		header("location: ../reasons.php");
 }
 ?>

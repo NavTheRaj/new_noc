@@ -29,7 +29,7 @@ header("location:login.php");
 						</div>
 				</div>
 		</div>
-		<div class="">
+		<div class="add_button">
 				<?php include("add_department.php") ?>
 				<div class="text-center">
 						<a href="" class="btn-rounded mb-4 add_department_section " data-toggle="modal" id="add_dept_button" data-target="#add_department_form">
