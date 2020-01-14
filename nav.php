@@ -1,5 +1,5 @@
 <header>
-<nav class="navbar grey lighten-2 py-3 ">
+<nav class="navbar grey lighten-2 pt-1 ">
 		<ul class="nav ">
 				<li class="nav-item">
 				<a class="nav-link navbar-brand" href="index.php">

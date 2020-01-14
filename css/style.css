@@ -9,3 +9,12 @@
 .leftSideBar,.rightSideBar{
 		height:100vh;
 }
+.row { 
+		margin: 0; padding: 0  
+}
+
+.add_department_section{
+		position: fixed;
+		right:30px;
+		bottom:10px;
+}

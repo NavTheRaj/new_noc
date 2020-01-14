@@ -1,4 +1,5 @@
 <?php
+require("dbh.inc.php");
 function validate($data){
 		$data = trim($data);
 		$data = htmlspecialchars($data);
