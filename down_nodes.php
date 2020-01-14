@@ -12,10 +12,10 @@ $result = mysqli_query($conn,"select tbl_host.hostname,
 
 while($row = mysqli_fetch_array($result)){
 	$acknowledged = ($row['ack_status'] == 1? True:False);
-	$light_red =  "style='background-color:#f99'";
-	$dark_read = "style='background-color:#f66'";
+	$light_red =  "style='color:#f99'";
+	$dark_read = "style='color:#00f'";
 	echo "<tr ",$acknowledged?$light_red : $dark_read ,">";
-	echo "<td>".$row['hostname']."</td>";
+	echo "<td>".explode(".",$row['hostname'])[0]."</td>";
 	echo "<td>".$row['interface']."</td>";
 	echo "<td>".$row['description']."</td>";
 	echo "<td>".$row['last_update']."</td>";
