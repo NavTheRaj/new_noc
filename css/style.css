@@ -10,3 +10,16 @@
 		margin: 0; padding: 0  
 }
 
+.searchBar{
+		margin:0;
+		padding: 0 0 0 5px;
+		display:block;
+		border:none;
+		border-bottom:1px solid green;
+		border-radius: 0;
+}
+.searchBar:focus{
+		border:none;
+		box-shadow:0;
+		outline:none !important;
+}

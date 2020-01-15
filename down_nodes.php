@@ -15,12 +15,15 @@ while($row = mysqli_fetch_array($result)){
 	$light_red =  "style='color:#f99'";
 	$dark_read = "style='color:#00f'";
 	echo "<tr ",$acknowledged?$light_red : $dark_read ,">";
-	echo "<td>".explode(".",$row['hostname'])[0]."</td>";
-	echo "<td>".$row['interface']."</td>";
-	echo "<td>".$row['description']."</td>";
-	echo "<td>".$row['last_update']."</td>";
-	echo "<td>".$row['Duration']."</td>";
-	echo "<td> Action</td></tr>";
+	echo "<td class='nid'>".$row['id']."</td>"; 
+	echo "<td class='hostname'>".explode(".",$row['hostname'])[0]."</td>";
+	echo "<td class='interface'>".$row['interface']."</td>";
+	echo "<td class='description'>".$row['description']."</td>";
+	echo "<td class='last_update'>".$row['last_update']."</td>";
+	echo "<td class='duration'>".$row['Duration']."</td>";
+	echo "<td>";
+	include("action_btn.php");
+	echo"</td></tr>";
 }
 
 ?>

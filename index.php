@@ -12,10 +12,6 @@ header("location:login.php");
 				<div class="col pt-2">
 						<!-- <div class="col&#45;md&#45;8 leftSideBar pt&#45;2"> -->
 						<div class="container">
-								<div class="d-flex justify-content-center">
-										<i class="fas fa-tachometer-alt fa-2x mr-3"></i>
-										<h2>Nodes DashBoard</h2>
-								</div>
 								<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
 										<li class="nav-item">
 										<a class="nav-link active" id="home-tab" data-toggle="tab" href="#down_nodes-tab" role="tab" aria-controls="home"
@@ -27,12 +23,13 @@ header("location:login.php");
 										</li>
 								</ul>
 								<div class="tab-content" id="myTabContent">
-										<div class="tab-pane fade show active" id="down_nodes-tab" role="tabpanel"
-												aria-labelledby="down_nodes-tab">
+										<div class="tab-pane fade show active" id="down_nodes-tab" role="tabpanel" aria-labelledby="down_nodes-tab">
+												<?php include("tools.php") ?>
 												<div class="table-responsive">
 														<table class="table" id="datatables-fix-header">
 																<thead>
 																		<tr>
+																				<th scope="col">ID</th>
 																				<th scope="col">Hostname</th>
 																				<th scope="col">Interface</th>
 																				<th scope="col">Description</th>
@@ -43,6 +40,7 @@ header("location:login.php");
 																</thead>
 																<tbody>
 																<?php include("down_nodes.php") ?>
+																<?php include("acknowledge_form.php") ?>
 																</tbody>
 														</table>
 												</div>

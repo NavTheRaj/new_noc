@@ -4,28 +4,44 @@ $(document).ready(function() {
 		});
 
 		$('#datatables-fix-header').DataTable({
-			dom:'<"container wrapper row" <"col-6"l><"col-6" <"d-flex justify-content-end"f>>">tS<"row"p>',
-			fixHeader:true
+			dom:'<"container wrapper row" <"col-4"l><"col-4"B><"col-4" <"d-flex justify-content-end"f>>">tS<"row"p>',
+        buttons: [
+            'colvis'
+       ]
 		});
-/*
 
-		// script  to make side appear from left on report tab
-	$('#report-tab').on('click',function(){
-			$('.leftSideBar').addClass("col-md-8 fadeInRight");
-			$('.rightSideBar').addClass("col-md-4");
-			$('.rightSideBar').removeClass("d-none");
-	});
-	// make sidebar disappear when clicked on other two tabs
-	$('#home-tab').on('click',function(){
-			$('.leftSideBar').removeClass("col-md-8");
-			$('.rightSideBar').removeClass("col-md-4");
-			$('.rightSideBar').addClass("d-none");
-	});
-	$('#profile-tab').on('click',function(){
-			$('.leftSideBar').removeClass("col-md-8");
-			$('.rightSideBar').removeClass("col-md-4");
-			$('.rightSideBar').addClass("d-none");
-	});
-*/
+// Formatting data tables dom elements
+		$('.dataTables_length').find("select").addClass("browser-default custom-select");
+		$('#datatables-fix-header_filter input').addClass("form-control searchBar");
+		
+
+// sending value of row to modal form
+
+		$('.ack_btn').click(function(){
+				let tr = $(this).closest("tr");
+				// let childrens = tr.children();
+				let hostname = tr.find(".hostname").text();
+				let nid = tr.find(".nid").text();
+				let interface = tr.find(".interface").text();
+				let description = tr.find(".description").text();
+				let last_update = tr.find(".last_update").text();
+				let duration = tr.find(".duration").text();
+
+				$('#md_hostname').text(hostname);
+				$('#hostname').val(hostname);
+				$('#nid').val(nid);
+
+				$('#md_port_no').text(interface);
+				$('#port_no').val(interface);
+
+				$('#md_description').text(description);
+				$('#description').val(description);
+
+				$('#md_down_time').text(last_update);
+				$('#down_time').val(last_update);
+
+				$('#md_duration').text(duration);
+				$('#duration').val(duration);
+		});
 
 });
