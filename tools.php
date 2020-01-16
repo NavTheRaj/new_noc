@@ -2,12 +2,19 @@
 		<div class="col-sm-6 p-0">
 				<div class="btn-group">
 						<div class="add_button">
-								<?php include("add_department.php") ?>
-								<div class="">
-										<a href="" class="btn btn-default btn-sm" data-toggle="modal" id="add_dept_button" data-target="#add_department_form">
-												Add New <i class="fas fa-plus"></i>
+								<?php 
+								if( explode(".",end(explode("/",$_SERVER['SCRIPT_NAME'])))[0] == "departments"){
+										include("add_department.php");
+								echo '<div class="">
+										<a href="" class="btn btn-default btn-sm"
+												data-toggle="modal" id="add_dept_button" data-target="#add_department_form">
+												Add New <i class="fas
+														fa-plus"></i>
 										</a>
 								</div>
+								';
+								};   
+								?>
 						</div>
 				</div>
 		</div>

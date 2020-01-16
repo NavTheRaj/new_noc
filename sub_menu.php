@@ -10,15 +10,20 @@ $page = explode(".",explode("/",$_SERVER["SCRIPT_NAME"])[3])[0];
 						</button>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 								<ul class="navbar-nav mr-auto">
-								<li class="nav-item <?php echo($page =='index'? 'active':'')?>">
-										<a class="nav-link" href="index.php">Nodes <span class="sr-only">(current)</span></a>
+										<li class="nav-item <?php echo($page =='index'? 'active':'')?>">
+												<a class="nav-link" href="index.php">Nodes <span class="sr-only">(current)</span></a>
 										</li>
-										<li class="nav-item <?php echo($page =='departments'? 'active':'')?>">
-										<a class="nav-link" href="departments.php">Departments</a>
-										</li>
-										<li class="nav-item <?php echo($page =='reasons'? 'active':'')?>">
-										<a class="nav-link" href="reasons.php">Reasons</a>
-										</li>
+										<?php
+										if($_SESSION['role'] == 'admin'){
+												echo '<li class="nav-item ',($page =='departments'? 'active':''),'">
+																<a class="nav-link" href="departments.php">Departments</a>
+															</li>';
+
+												echo '<li class="nav-item ',($page =='reasons'? 'active':''),'">
+																<a class="nav-link" href="reasons.php">Reasons</a>
+															</li>';
+										}
+										?>
 								</ul>
 						</div>
 				</div>

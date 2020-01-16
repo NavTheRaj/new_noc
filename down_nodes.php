@@ -12,9 +12,7 @@ $result = mysqli_query($conn,"select tbl_host.hostname,
 
 while($row = mysqli_fetch_array($result)){
 	$acknowledged = ($row['ack_status'] == 1? True:False);
-	$light_red =  "style='color:#f99'";
-	$dark_read = "style='color:#00f'";
-	echo "<tr ",$acknowledged?$light_red : $dark_read ,">";
+	echo "<tr class='tbl_row ".($acknowledged?"ACKed_color":"not_ACKed_color")."'>"; // adding css class based on ack_status
 	echo "<td class='nid'>".$row['id']."</td>"; 
 	echo "<td class='hostname'>".explode(".",$row['hostname'])[0]."</td>";
 	echo "<td class='interface'>".$row['interface']."</td>";

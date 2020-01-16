@@ -1,19 +1,56 @@
-$(document).ready(function() {
-		let all_nodes_table = $('#all_nodes_table').DataTable({
-			fixHeader:true
-		});
+// Material Design example
+$(document).ready(function () {
 
-		$('#datatables-fix-header').DataTable({
-			dom:'<"container wrapper row" <"col-4"l><"col-4"B><"col-4" <"d-flex justify-content-end"f>>">tS<"row"p>',
-        buttons: [
-            'colvis'
-       ]
-		});
+$('#down_nodes_table').DataTable( {
+dom:'<"row m-0 p-0 d_table_controller"<"col-2"l><"col-6 d-flex justify-content-end"B><"col-4 d-flex justify-content-end"f>>t<"row"<"col-6"i><"col-6"p>>',
+        // lengthChange: false,
+        // buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+					buttons:[
+								{
+											extend:'csv',
+											exportOptions:{
+													columns:[':visible :not(.js-not-exportable)']
+											}
+								},
+								{
+											extend:'excel',
+											exportOptions:{
+													columns:[':visible :not(.js-not-exportable)']
+											}
+								},
+								{
+											extend:'pdf',
+											exportOptions:{
+													columns:[':visible :not(.js-not-exportable)']
+											}
+								},
+								{
+											extend:'colvis'
+								}
+					],
+					fixedHeader: true
+    } );
+ 
+		// Styling Datatables length selector
 
-// Formatting data tables dom elements
-		$('.dataTables_length').find("select").addClass("browser-default custom-select");
-		$('#datatables-fix-header_filter input').addClass("form-control searchBar");
-		
+  $('#down_nodes_table_wrapper').find('label').each(function () {
+    $(this).parent().append($(this).children());
+  });
+  $('#down_nodes_table_wrapper .dataTables_filter').find('input').each(function () {
+    const $this = $(this);
+    $this.attr("placeholder", "Search");
+    $this.removeClass('form-control-sm');
+  });
+	
+	$('#down_nodes_table_wrapper .dataTables_filter').find('label').each(function(){
+		const $this = $(this);
+		$this.detach();
+	});
+
+
+// All nodes 
+$('#all_nodes_table').DataTable();
+
 
 // sending value of row to modal form
 
@@ -43,5 +80,8 @@ $(document).ready(function() {
 				$('#md_duration').text(duration);
 				$('#duration').val(duration);
 		});
+
+		// Removing certain menu options based on ack_status
+			$(".ACKed_color").find(".ack_btn").detach();
 
 });

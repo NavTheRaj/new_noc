@@ -23,3 +23,16 @@
 		box-shadow:0;
 		outline:none !important;
 }
+
+.ACKed_color{
+		color:#e57373;
+		font-weight:bold;
+}
+.node_up_color{
+		color:#000;
+}
+.not_ACKed_color,.node_down_color{
+		color:#b71c1c;
+		font-weight:bold;
+}
+
