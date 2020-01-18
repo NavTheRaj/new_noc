@@ -25,6 +25,7 @@ if(isset($_POST['login'])){
 								$_SESSION['username']=$username;
 								$_SESSION['password']=$result['password'];
 								$_SESSION['role']=$result['role'];
+								$_SESSION['uid']=$result['id'];
 								header("location: ../index.php");
 						}
 						else{

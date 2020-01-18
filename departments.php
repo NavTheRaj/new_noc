@@ -2,13 +2,9 @@
 include("header.php");
 include("nav.php");
 include("sub_menu.php");
-if(!isset($_SESSION['username'])){
-header("location:login.php");
-}
-elseif($_SESSION['role']!='admin')
-{
-		echo "<script>alert('You are not authorized to open this link')</script>";
-}
+require_once("includes/func.inc.php");
+
+check_access(); // checking access of this page from func.inc.php file
 ?>
 
 <div class="container">

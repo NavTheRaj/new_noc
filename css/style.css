@@ -36,3 +36,19 @@
 		font-weight:bold;
 }
 
+/*  */
+/* .403_container{ */
+/* 		height:100vh; */
+/* 		width:100%; */
+/* } */
+.error_heading{
+		font-size:20vw;
+}
+
+
+.card {
+		box-shadow:none !important;
+}
+.comment_color{
+		background-color:#F2F3F5;
+}

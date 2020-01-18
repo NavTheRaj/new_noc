@@ -16,7 +16,7 @@ include("header.php");
 						<!-- Remember me -->
 						<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-								<label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+								<label class="custom-control-label mr-2" for="defaultLoginFormRemember">Remember me</label>
 						</div>
 				</div>
 				<div>
@@ -33,12 +33,12 @@ include("header.php");
 		</p>
 
 		<!-- Social login -->
-		<p>or sign in with:</p>
-
-		<a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
-		<a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-		<a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
-		<a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+		<!-- <p>or sign in with:</p> -->
+    <!--  -->
+		<!-- <a href="#" class="mx&#45;2" role="button"><i class="fab fa&#45;facebook&#45;f light&#45;blue&#45;text"></i></a> -->
+		<!-- <a href="#" class="mx&#45;2" role="button"><i class="fab fa&#45;twitter light&#45;blue&#45;text"></i></a> -->
+		<!-- <a href="#" class="mx&#45;2" role="button"><i class="fab fa&#45;linkedin&#45;in light&#45;blue&#45;text"></i></a> -->
+		<!-- <a href="#" class="mx&#45;2" role="button"><i class="fab fa&#45;github light&#45;blue&#45;text"></i></a> -->
 
 </form>
 <!-- Default form login -->

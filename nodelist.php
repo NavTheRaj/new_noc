@@ -1,5 +1,11 @@
 <?php
-require("includes/dbh.inc.php");
+require_once("includes/dbh.inc.php");
+require_once("includes/func.inc.php");
+
+//redirects to main page if not viewd from main page
+redirect_to_main_page("index.php");
+
+
 $result = mysqli_query($conn,"select tbl_host.hostname,
 		tbl_node.interface,
 		tbl_node.description,
