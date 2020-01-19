@@ -1,9 +1,17 @@
 <?php 
+session_start();
+if(isset($_SESSION['username'])){
+		echo "<script>";
+		echo "alert('You are aleardy logged in. Please logout first');";
+		echo "window.location.replace('index.php');";
+		echo "</script>";
+}
 include("header.php");
 ?>
 <!-- Default form login -->
-<div class="d-flex justify-content-center mt-5">
-<form class="text-center border border-light p-5" action="includes/login.inc.php" method="POST">
+<div class="login_container d-flex justify-content-center align-items-center">
+<div class="">
+<form class="text-center border border-light p-5 white" action="includes/login.inc.php" method="POST">
 		<p class="h4 mb-4">Sign in</p>
 		<!-- Email -->
 		<input type="text" id="loginEmail" name="username" class="form-control mb-4" placeholder="Username">
@@ -21,17 +29,12 @@ include("header.php");
 				</div>
 				<div>
 						<!-- Forgot password -->
-						<a href="">Forgot password?</a>
+						<a href="reset_password.php">Forgot password?</a>
 				</div>
 		</div>
 
 		<!-- Sign in button -->
 		<button class="btn btn-info btn-block my-4" type="submit" name="login">Sign in</button>
-		<!-- Register -->
-		<p>Not a member?
-				<a href="register.php">Register</a>
-		</p>
-
 		<!-- Social login -->
 		<!-- <p>or sign in with:</p> -->
     <!--  -->
@@ -42,6 +45,7 @@ include("header.php");
 
 </form>
 <!-- Default form login -->
+</div>
 </div>
 
 <?php 

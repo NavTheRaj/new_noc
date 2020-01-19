@@ -53,7 +53,7 @@ if(isset($_POST['register'])){
 						}
 						else{
 								$hashPassword = password_hash($password1,PASSWORD_DEFAULT);
-								$stmt->bind_param("ssssss",$fn,$ln,$un,$hp,$el);
+								// $stmt->bind_param("ssssss",$fn,$ln,$un,$hp,$el);
 								$stmt->bind_param("ssssss",$firstName,$lastName,$username,$department,$hashPassword,$email);
 								if($stmt->execute()){
 										header("location: ../login.php?signup=success");

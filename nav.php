@@ -21,8 +21,9 @@
 				</a>
 						<div class="dropdown-menu dropdown-primary dropdown-menu-right"
 						aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="includes/logout.inc.php" name="logout">Logout</a>
-				</div>
+								<a class="dropdown-item" href="change_password.php?change_password" name="change_pass">Change Password</a>
+								<a class="dropdown-item" href="includes/logout.inc.php" name="logout">Logout</a>
+						</div>
 				</li>
 
 		</ul>

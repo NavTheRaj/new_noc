@@ -17,7 +17,6 @@ if(isset($_POST['login'])){
 				$stmt->execute();
 				$result = $stmt->get_result();
 				$result = $result->fetch_assoc();
-				var_dump($result['pwd']);
 				if($result){
 						$passwordCorrect = password_verify($password,$result['pwd']);
 						if($passwordCorrect){
