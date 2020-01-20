@@ -1,6 +1,10 @@
 // Material Design example
 $(document).ready(function () {
 
+//focus this input field in load
+// $('.loginEmail').focus();
+$('input[type="text"]').get(0).focus();
+
 $('#down_nodes_table').DataTable( {
 dom:'<"row m-0 p-0 d_table_controller"<"col-2"l><"col-6 d-flex justify-content-end"B><"col-4 d-flex justify-content-end"f>>t<"row"<"col-6"i><"col-6 d-flex justify-content-end"p>>',
         // lengthChange: false,

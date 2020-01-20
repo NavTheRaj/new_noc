@@ -22,7 +22,7 @@ if(isset($_POST['login'])){
 						if($passwordCorrect){
 								session_start();
 								$_SESSION['username']=$username;
-								$_SESSION['password']=$result['password'];
+								$_SESSION['password']=$result['pwd'];
 								$_SESSION['role']=$result['role'];
 								$_SESSION['uid']=$result['id'];
 								header("location: ../index.php");

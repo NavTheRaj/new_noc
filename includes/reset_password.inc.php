@@ -18,16 +18,40 @@ if(isset($_POST['request_link'])){
 				$sql = "insert into password_resets (email,token) values(?,?)";
 				$stmt = $conn->prepare($sql);
 				$stmt->bind_param("ss",$email,$token);
-				if(send_email($email,$token)){
-						$stmt->execute();
+				echo ("test");
+
+				require '../PHPMailer/PHPMailerAutoload.php';
+				$mail = new PHPMailer;
+				$mail->SMTPDebug = 2;     
+
+
+				$mail->isSMTP();
+				$mail->Host = 'smtp.subisu.net.np';  // Specify main and backup SMTP servers
+				$mail->SMTPAuth = false;                               // Enable SMTP authentication
+				$mail->Username = 'areacheck@subisu.net.np';                 // SMTP username
+				$mail->Password = 'D3v0ps$123'; //SMTP password
+				// $mail->SMTPSecure = 'none';// Enable TLS encryption, `ssl` also accepted
+				$mail->Port = 25;    
+
+				$mail->setFrom('areacheck@subisu.net.np');
+				$mail->addAddress($email);  
+				$mail->addReplyTo('areacheck@subisu.net.np');
+				$mail->isHTML(true);
+
+
+				$mail->Subject = 'Password Reset Link';
+				$msg = 'Hi, wer received a password rquest. please fillow this <a href="http://182.93.64.114/projects/new_noc/new_password.php?token='.$token.'">Link</a> To reset your password';
+				$msg = wordwrap($msg,70);
+				$mail->Body = $msg; 
+				if(!$mail->send()) {
+						echo 'Message could not be sent.';
+						echo 'Mailer Error: ' . $mail->ErrorInfo;
+				} else {
 						header("location:../pending.php?email=".$email);
 				}
-				else{
-						header("Location: ../reset_password.php?error=email_not_send");
-				}
-		}
+		} 
 		else{
-						header("Location: ../reset_password.php?error=NoSuchEmail");
+				header("Location: ../reset_password.php?error=NoSuchEmail");
 		}
 }
 ?>
