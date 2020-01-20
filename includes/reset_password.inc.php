@@ -3,10 +3,8 @@ require_once("dbh.inc.php");
 require("func.inc.php");
 if(isset($_POST['request_link'])){
 		$email = $_POST['email'];
-
 		$sql = "select * from tbl_users where email = ?";
 		$stmt = $conn->prepare($sql);
-
 		$stmt->bind_param("s",$email);
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -39,10 +37,10 @@ if(isset($_POST['request_link'])){
 
 
 				$mail->Subject = 'Password Reset Link';
-				$msg = 'Hi, wer received a password rquest. please fillow this <a href="http://182.93.64.114/projects/new_noc/new_password.php?token='.$token.'&email='.$email.'">Link</a> To reset your password';
+				$msg = 'Hi, we received a password reset request for your email '.$email.' please fillow this <a href="http://182.93.64.114/projects/new_noc/new_password.php?token='.$token.'&email='.$email.'">Link</a> To reset your password';
 				$msg = wordwrap($msg,70);
 				$mail->Body = $msg; 
-				if(!$mail->send()) {
+				if(!$mail->send()){
 						echo 'Message could not be sent.';
 						echo 'Mailer Error: ' . $mail->ErrorInfo;
 				} else {
