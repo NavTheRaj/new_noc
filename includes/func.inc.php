@@ -23,3 +23,4 @@ function redirect_to_main_page($page_name){
 				header("Location: ./$page_name");
 		}
 }
+
