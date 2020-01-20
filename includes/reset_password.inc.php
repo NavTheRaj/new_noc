@@ -18,7 +18,6 @@ if(isset($_POST['request_link'])){
 				$sql = "insert into password_resets (email,token) values(?,?)";
 				$stmt = $conn->prepare($sql);
 				$stmt->bind_param("ss",$email,$token);
-				echo ("test");
 
 				require '../PHPMailer/PHPMailerAutoload.php';
 				$mail = new PHPMailer;
@@ -40,14 +39,16 @@ if(isset($_POST['request_link'])){
 
 
 				$mail->Subject = 'Password Reset Link';
-				$msg = 'Hi, wer received a password rquest. please fillow this <a href="http://182.93.64.114/projects/new_noc/new_password.php?token='.$token.'">Link</a> To reset your password';
+				$msg = 'Hi, wer received a password rquest. please fillow this <a href="http://182.93.64.114/projects/new_noc/new_password.php?token='.$token.'&email='.$email.'">Link</a> To reset your password';
 				$msg = wordwrap($msg,70);
 				$mail->Body = $msg; 
 				if(!$mail->send()) {
 						echo 'Message could not be sent.';
 						echo 'Mailer Error: ' . $mail->ErrorInfo;
 				} else {
-						header("location:../pending.php?email=".$email);
+						if($stmt->execute()){
+								header("location:../pending.php?email=".$email);// enter the token into the database
+						}
 				}
 		} 
 		else{

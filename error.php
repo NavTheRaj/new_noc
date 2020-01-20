@@ -6,7 +6,10 @@ include("header.php");
 if($_GET['error']=="403"){
 		include("403.php");
 }
-else{
+else if($_GET['error']=="404"){
+		include("404.php");
+}
+else if($_GET['error'] == 401){
 		include("401.php");
 }
 ?>
