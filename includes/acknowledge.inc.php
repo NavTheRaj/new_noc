@@ -12,14 +12,16 @@ function add_to_database($conn){
 		$hostname = $_POST['hostname'];
 		$port = $_POST['port_no'];
 		$description = $_POST['description'];
-		$down_time = $_POST['down_time'];
 		$reason = $_POST['sub_reason_id'];
 		$submitted_to = $_POST['informed_to'];
 		$remark = $_POST['remark'];
 		$nid = $_POST['nid'];
 
+		if(empty($hostname) || empty($port) || empty($description) || empty($reason) || empty($submitted_to) || empty($remark) || empty($nid)){
+				header("location: ../index.php?error=emptyfield");
+		}
 
-		$sql = "insert into tbl_ack(nid,downtime,node_status,subReasonId,assign,remark)values('$nid','$down_time',0,'$reason','$submitted_to','$remark')";
+		$sql = "insert into tbl_ack(nid,node_status,subReasonId,assign,remark)values($nid,0,$reason,'$submitted_to','$remark')";
 
 		$sql2 = "update tbl_node set ack_status = 1 where id = ".$nid;
 

@@ -9,24 +9,34 @@ $comments = get_comments($conn,$_GET['ack_id']);
 
 <div class="container mt-5 ">
 		<center>
-				<h1 class="my-2">Node Ack Detail</h1>
+				<h1 class="my-2">Node Ack Detail <?php if($result['node_status']==2)echo "[Resolved]" ?></h1>
 		</center>
 
 		<div class="border py-2">
 				<div class="row mb-2">
 						<div class='col-6'>
-								<span>Ack Id: </span>
-								<?php echo $result['id']?>
-						</div>
-						<div class='col-6'>
 								<span>Hostname: </span>
 								<?php echo $result['hostname']?>
+						</div>
+						<div class='col-6'>
+								<span>Decription: </span>
+								<?php echo $result['description']?>
 						</div> 
 				</div>
 				<div class="row mb-2">
 						<div class='col-6'>
-								<span>Down Time: </span>
+								<span>Interface : </span>
+								<?php echo $result['interface']?>
+						</div>
+						<div class='col-6'>
+								<span>Downtime: </span>
 								<?php echo $result['downtime']?>
+						</div> 
+				</div>
+				<div class="row mb-2">
+						<div class='col-6'>
+								<span>Root Cause: </span>
+								<?php echo $result['interface']?>
 						</div>
 						<div class='col-6'>
 								<span>Node Status: </span>
@@ -38,40 +48,27 @@ $comments = get_comments($conn,$_GET['ack_id']);
 				<?php
 				while($comment = $comments->fetch_assoc()){
 				echo '
-				<!-- Card -->
-				<div class="card rounded mb-2 comment_color" >
-						<!-- Card content -->
-						<div class="card-body"style="width:auto">
-								<h4 class="card-title text-primary pb-0 mb-0">'.$comment['username'].'</h4>
-										<i class="far fa-clock mr-2"></i>'.explode(" ",$comment['c_date'])[0].'
+				<div class="container text-justify">
+						<div class="rounded mb-2" style="width:auto;max-width:80%">
+								<div class="comment_color p-3 d-inline-block">
+										<h3 class="text-primary pb-0 mb-1">'.$comment['username'].'</h3>
+										<!-- Text -->
+										<p class="card-text">'.$comment["comment"].'</p>
 										<hr>
-								<!-- Text -->
-								<p class="card-text">'.$comment["comment"].'</p>
+										<i class="far fa-clock mr-2"></i>'.$comment['c_date'].'
+								</div>
 						</div>
 				</div>
 				';
 				}
 				?>
+		</div>
+		<?php
+		if($result['node_status'] != '2'){
+		include("comment_form.php");
+		}
 
-		</div>
-		<div class="comment mt-2">
-				<form action="includes/comment.inc.php" method="post">
-						<div class="row d-flex justify-content-end">
-								<div class="col p-0 ">
-										<div class="md-form form-lg">
-												<input type="text" class="d-none" value="<?php echo $_GET['ack_id'] ?>" name="ack_id">
-												<input type="text" id="comment_form" class="form-control form-control-lg" name="comment">
-												<label for="inputLGEx">Enter a comment </label>
-										</div>
-								</div>
-						</div>
-						<div class="row">
-								<div class="col px-0 d-flex justify-content-end">
-										<button class="btn btn-primary" name="post">Post</button>
-								</div>
-						</div>
-				</form>
-		</div>
+		?>
 </div>
 
 <?php include("footer.php") ?>
