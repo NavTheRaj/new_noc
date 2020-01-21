@@ -39,16 +39,15 @@ $comments = get_comments($conn,$_GET['ack_id']);
 				while($comment = $comments->fetch_assoc()){
 				echo '
 				<!-- Card -->
-				<div class="card rounded mb-2 comment_color">
+				<div class="card rounded mb-2 comment_color" >
 						<!-- Card content -->
-						<div class="card-body">
-								<h4 class="card-title text-primary">'.$comment['username'].'</h4>
+						<div class="card-body"style="width:auto">
+								<h4 class="card-title text-primary pb-0 mb-0">'.$comment['username'].'</h4>
+										<i class="far fa-clock mr-2"></i>'.explode(" ",$comment['c_date'])[0].'
+										<hr>
 								<!-- Text -->
 								<p class="card-text">'.$comment["comment"].'</p>
-								<div class="d-flex justify-content-end">
-												 Comment on: '.explode(" ",$comment['c_date'])[0].'
-								 </div>
-							 </div>
+						</div>
 				</div>
 				';
 				}
@@ -59,11 +58,11 @@ $comments = get_comments($conn,$_GET['ack_id']);
 				<form action="includes/comment.inc.php" method="post">
 						<div class="row d-flex justify-content-end">
 								<div class="col p-0 ">
-<div class="md-form form-lg">
-<input type="text" class="d-none" value="<?php echo $_GET['ack_id'] ?>" name="ack_id">
-  <input type="text" id="comment_form" class="form-control form-control-lg" name="comment">
-  <label for="inputLGEx">Enter a comment </label>
-</div>
+										<div class="md-form form-lg">
+												<input type="text" class="d-none" value="<?php echo $_GET['ack_id'] ?>" name="ack_id">
+												<input type="text" id="comment_form" class="form-control form-control-lg" name="comment">
+												<label for="inputLGEx">Enter a comment </label>
+										</div>
 								</div>
 						</div>
 						<div class="row">

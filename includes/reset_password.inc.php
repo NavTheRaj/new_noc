@@ -45,7 +45,10 @@ if(isset($_POST['request_link'])){
 						echo 'Mailer Error: ' . $mail->ErrorInfo;
 				} else {
 						if($stmt->execute()){
-								header("location:../pending.php?email=".$email);// enter the token into the database
+								echo "<script>";
+								echo "alert('A password reset Link has been sent to your email. Please reset your password and login');";
+								echo "window.location.replace('../login.php');";
+								echo "</script>";
 						}
 				}
 		} 

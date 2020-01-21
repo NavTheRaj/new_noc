@@ -5,7 +5,7 @@ if(isset($_GET['token']) AND isset($_GET['email'])){ // onlif if both email and 
 		$token = $_GET['token'];
 		$email = $_GET['email'];
 
-		$sql = "select * from password_resets where token = ? and email = ? limit 1";
+		$sql = "select * from password_resets where token = ? and email = ? and used = 0 limit 1";
 		$stmt = $conn->prepare($sql);
 		$stmt->bind_param("ss",$token,$email);
 		$stmt->execute();
