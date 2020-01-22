@@ -16,13 +16,13 @@ function add_to_database($conn){
 		$submitted_to = $_POST['informed_to'];
 		$remark = $_POST['remark'];
 		$nid = $_POST['nid'];
+		$uid = $_SESSION['uid'];
 
 		if(empty($hostname) || empty($port) || empty($description) || empty($reason) || empty($submitted_to) || empty($remark) || empty($nid)){
 				header("location: ../index.php?error=emptyfield");
 		}
 
-		$sql = "insert into tbl_ack(nid,node_status,subReasonId,assign,remark)values($nid,0,$reason,'$submitted_to','$remark')";
-
+		$sql = "insert into tbl_ack(nid,node_status,subReasonId,assign,remark,ack_by)values($nid,0,$reason,'$submitted_to','$remark',$uid)";
 		$sql2 = "update tbl_node set ack_status = 1 where id = ".$nid;
 
 		if($conn->query($sql)){

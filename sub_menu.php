@@ -24,6 +24,9 @@ $page = explode(".",explode("/",$_SERVER["SCRIPT_NAME"])[3])[0];
 															</li>';
 										}
 										?>
+										<li class="nav-item <?php echo($page =='nodelist'? 'active':'')?>">
+												<a class="nav-link" href="nodelist.php">Report</a>
+										</li>
 								</ul>
 						</div>
 				</div>

@@ -10,7 +10,7 @@ redirect_to_main_page("index.php");
 $start_date = date("Y-m-01");
 $end_date = date("Y-m-t");
 
-$sql = "select a.id, hostname, interface, description, node_status from tbl_host h JOIN tbl_node n ON h.id=n.hid JOIN tbl_ack a ON n.id=a.nid where node_status != 2 and downtime between '$start_date' and '$end_date'"; 
+$sql = "select a.id, hostname, interface, description, node_status from tbl_host h JOIN tbl_node n ON h.id=n.hid JOIN tbl_ack a ON n.id=a.nid where node_status < 2 and downtime between '$start_date' and '$end_date'"; 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()){

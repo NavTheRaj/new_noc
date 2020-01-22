@@ -1,5 +1,6 @@
 // Material Design example
 $(document).ready(function () {
+// for material select
 
 //focus this input field in load
 // $('.loginEmail').focus();

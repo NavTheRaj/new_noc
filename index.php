@@ -12,22 +12,18 @@ header("location:login.php");
 						<div class="container-fluid">
 								<ul class="nav nav-tabs mb-3 " id="myTab" role="tablist">
 										<li class="nav-item">
-										<a class="nav-link active" id="home-tab" data-toggle="tab" href="#down_nodes-tab" role="tab" aria-controls="home"
-												aria-selected="false">Down Nodes</a>
+										<a class="nav-link active" id="ack-tab" data-toggle="tab" href="#ack_nodes-tab" role="tab" aria-controls="ack"
+												aria-selected="true">Ack Nodes
+										</a>
 										</li>
 										<li class="nav-item">
-										<a class="nav-link" id="profile-tab" data-toggle="tab" href="#all_nodes-tab" role="tab" aria-controls="profile"
-												aria-selected="true">All Nodes</a>
-										</li>
-										<li class="nav-item">
-										<a class="nav-link" id="ack-tab" data-toggle="tab" href="#ack_nodes-tab" role="tab" aria-controls="ack"
-												aria-selected="false">Ack Nodes</a>
+										<a class="nav-link" id="home-tab" data-toggle="tab" href="#down_nodes-tab" role="tab" aria-controls="home" aria-selected="false">Down Nodes</a>
 										</li>
 								</ul>
 								<div class="tab-content" id="myTabContent">
-										<div class="tab-pane fade show active" id="down_nodes-tab" role="tabpanel" aria-labelledby="down_nodes-tab">
+										<div class="tab-pane fade " id="down_nodes-tab" role="tabpanel" aria-labelledby="down_nodes-tab">
 												<div class="table-responsive">
-														<table class="table" id="down_nodes_table">
+														<table class="table table-sm" id="down_nodes_table">
 																<thead>
 																		<tr>
 																				<th scope="col">ID</th>
@@ -46,27 +42,9 @@ header("location:login.php");
 														</table>
 												</div>
 										</div>
-										<div class="tab-pane fade" id="all_nodes-tab" role="tabpanel" aria-labelledby="all_nodes_tab">
-												<div class="table_responsive">
-														<table class="table" id="all_nodes_table">
-																<thead>
-																		<tr>
-																				<th scope="col">Hosename</th>
-																				<th scope="col">Interface</th>
-																				<th scope="col">Desctiption</th>
-																				<th scope="col">Online Modems</th>
-																				<th scope="col">Last Update</th>
-																		</tr>
-																</thead>
-																<tbody>
-																<?php include("nodelist.php") ?>
-																</tbody>
-														</table>
-												</div>
-										</div>
-										<div class="tab-pane fade" id="ack_nodes-tab" role="tabpanel" aria-labelledby="ack-tab">
+										<div class="tab-pane fade show active" id="ack_nodes-tab" role="tabpanel" aria-labelledby="ack-tab">
 												<div class="table-responsive">
-														<table class="table" id="acknowledge_table">
+														<table class="table table-sm" id="acknowledge_table">
 																<thead>
 																		<tr>
 																				<th scope="col">ID</th>
