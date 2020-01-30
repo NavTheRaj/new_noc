@@ -118,7 +118,6 @@ dom:'<"row m-0 p-0 d_table_controller"<"col-2"l><"col-6 d-flex justify-content-e
 		});
 
 		// Removing certain menu options based on ack_status
-			$(".ACKed_color").find(".ack_btn").detach();
 
 		let url = document.location.href;
 		if(url.includes("hostlist.php")){

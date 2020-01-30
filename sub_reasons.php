@@ -5,7 +5,7 @@ include("header.php");
 include("nav.php");
 include("sub_menu.php");
 if(!isset($_SESSION['username'])){
-header("location:login.php");
+		header("location:login.php");
 }
 ?>
 
@@ -21,13 +21,26 @@ header("location:login.php");
 								<table class="table " id="">
 										<thead>
 												<tr >
-														<th scope="col">SN</th>
-														<th scope="col">Departments</th>
+														<th scope="col">ID</th>
 														<th scope="col">Reasons</th>
+														<th scope="col">Sub Reason</th>
 												</tr>
 										</thead>
 										<tbody>
-										<?php include("reasons_list.php") ?>
+												<?php
+												$sql = "select s.id,sub_reason, description from tbl_subReasons s JOIN tbl_reasons r ON s.reasonId = r.id";
+												$reasons = $conn->query($sql);
+																		while($row = $reasons->fetch_assoc()){
+																				echo '
+																						<tr>
+																						<th>'.$row['id'].'
+																						<th>'.$row['description'].'
+																						<th>'.$row['sub_reason'].'
+																						</tr>
+																						';
+																}
+
+														?>
 										</tbody>
 								</table>
 						</div>
@@ -48,29 +61,29 @@ header("location:login.php");
 										</div>
 										<div class="modal-body mx-3">
 												<div class="md-form mb-5">
-														<select class="form-control" id="departments" name="dept">
+														<select class="form-control" id="departments" name="reason_id">
 																<option value="" selected class="form-control" disabled>Choose a
 																Root Reason</option>
 																<!-- *********** department list from tbl_departmen************** -->
-																<?php
+<?php
 
 																$sql = "select * from tbl_reasons";
 																$result = $conn->query($sql);
 																if($result->num_rows>0){
-																while($row = $result->fetch_assoc()){
-																echo " <option value='".$row['id']."'"; 
-																echo ">".$row['description']."</option> ";
-																}
+																		while($row = $result->fetch_assoc()){
+																				echo " <option value='".$row['id']."'"; 
+																				echo ">".$row['description']."</option> ";
+																		}
 																}
 																else{
-																echo "no departments in the databases";
+																		echo "no departments in the databases";
 																}
-																?>
+?>
 														</select>
 												</div>
 
 												<div class="md-form mb-4">
-														<input type="text" id="defaultForm-pass" class="form-control validate">
+														<input type="text" id="defaultForm-pass" class="form-control validate" name="sub_reason">
 														<label data-error="wrong" data-success="right"
 																for="defaultForm-pass">Sub Reason</label>
 												</div>
@@ -92,6 +105,6 @@ header("location:login.php");
 
 
 <?php
-include("footer.php");
+																include("footer.php");
 ?>
 

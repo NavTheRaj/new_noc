@@ -4,6 +4,13 @@
 
 <div class="dropdown-menu" id="action_dropdown">
 	<a class="dropdown-item" href="#"> <i class="fas fa-eye mr-3"></i>View </a>
-	<a class="dropdown-item ack_btn" href="" data-toggle="modal" data-target="#acknowledge_form"> <i class="fas fa-handshake mr-2"></i> Acknowledge </a>
+<?php
+if(!$acknowledged)
+{
+echo '<a class="dropdown-item ack_btn" href="" data-toggle="modal" data-target="#acknowledge_form"> <i class="fas fa-handshake mr-2"></i> Acknowledge </a>';
+}
+else 
+?>
+	
 </div>
 <!-- Basic dropdown -->
