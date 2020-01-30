@@ -31,6 +31,27 @@ function get_subReason($conn,$id){
 
 }
 
+function get_reasons($conn){
+		$sql = "select * from tbl_reasons";
+		if($result = $conn->query($sql)){
+				if ($result->num_rows > 0) {
+						return $result;
+				}
+		}
+
+}
+
+function get_subReasons($conn){
+		$sql = "select * from tbl_subReasons";
+
+		if($result = $conn->query($sql)){
+				if ($result->num_rows > 0) {
+						return $result;
+				}
+		}
+
+}
+
 function get_host($conn,$id){
 		$sql = "select * from tbl_host where id =".$id;
 
@@ -50,6 +71,16 @@ function get_comments($conn,$id){
 						return $result;
 				}
 		}
+}
+
+function get_hosts($conn){
+		$sql = "select id,hostname from tbl_host";
+		if($result = $conn->query($sql)){
+				if ($result->num_rows > 0) {
+						return $result;
+				}
+		}
+
 }
 
 function get_node($conn,$id){

@@ -13,6 +13,7 @@ header("location:login.php");
 		<div class="row">
 				<div class="col" id="view_reasons">
 						<h4 class="my-3 text-center">List Of Reasons</h4>
+						<?php include("tools.php") ?>
 						<div class="table_responsive">
 								<table class="table " id="">
 										<thead>
@@ -31,15 +32,7 @@ header("location:login.php");
 
 				</div>
 		</div>
-<div class="add_button">
-				<?php include("add_reason.php") ?>
-				<div class="text-center">
-						<a href="" class="btn-rounded mb-4 add_department_section " data-toggle="modal" id="add_dept_button" data-target="#add_reason_form">
-								<i class="fas fa-plus-circle fa-3x"></i>
-						</a>
-				</div>
-
-		</div>
+<?php include("add_reason.php") ?>
 </div>
 
 

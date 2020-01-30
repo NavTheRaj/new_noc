@@ -15,7 +15,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()){
 				$status = ($row['node_status'] == 0 ? "DOWN": "UP");
-				$color = ($row['node_status'] == 0 ? "badge badge-danger": "badge badge-success");
+				$color = ($row['node_status'] == 0 ? "badge badge-danger": "badge badge-warning");
 				echo"<tr>";
 				echo "<td>".$row['id']."</td>";
 				echo "<td>".$row['hostname']."</td>";

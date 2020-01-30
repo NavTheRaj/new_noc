@@ -10,7 +10,7 @@
 						</div>
 						<div class="col-12 px-0 d-flex justify-content-end">
 								<?php
-								if($result['node_status'] == 1){
+								if($tbl_ack['node_status'] == '1'){
 										echo '<button class="btn btn-danger" name="resolve">Resolve</button>';
 								}
 								?>

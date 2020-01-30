@@ -1,5 +1,4 @@
-<div class="modal fade" id="add_department_form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-		aria-hidden="true">
+<div class="modal fade" id="modal_form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 				<form action="includes/add_department.inc.php" method="POST">
 						<div class="modal-content">

@@ -120,4 +120,14 @@ dom:'<"row m-0 p-0 d_table_controller"<"col-2"l><"col-6 d-flex justify-content-e
 		// Removing certain menu options based on ack_status
 			$(".ACKed_color").find(".ack_btn").detach();
 
+		let url = document.location.href;
+		if(url.includes("hostlist.php")){
+					let status = url.split("?")[1];
+					if(status.split("=")[1]=="success"){
+						alert("Host SuccessFully Added");
+						// console.log(url.split("?")[0]);
+						window.location.href =url.split("?")[0];
+						}
+		}
 });
+

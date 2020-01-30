@@ -1,6 +1,7 @@
 <?php
 require_once("includes/dbh.inc.php");
 require_once("includes/func.inc.php");
+require("includes/models.php");
 include("header.php");
 include("nav.php");
 include("sub_menu.php");
@@ -18,6 +19,61 @@ $result = mysqli_query($conn,"select tbl_host.hostname,
 
 ?>
 <div class="container">
+<div class="modal fade" id="add_node" tabindex="-1" role="dialog"
+								aria-labelledby="hostlabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+										<form action="includes/add_node.inc.php" method="post">
+												<div class="modal-content">
+														<div class="modal-header text-center">
+																<h4 class="modal-title w-100 font-weight-bold">Add Node</h4>
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																</button>
+														</div>
+														<div class="modal-body mx-3">
+																<select class="browser-default custom-select" name="hid">
+																	<option selected disabled>Select Host</option>
+																	<?php
+																	$result = get_hosts($conn);
+																	while($row = mysqli_fetch_array($result)){
+																	echo '
+																			<option value="'.$row['id'].'">'.$row['hostname'].'</option>
+																	';
+																	}
+																	?>
+																</select>
+																<div class="md-form mb-5">
+																		<i class="fas fa-user prefix grey-text"></i>
+																		<input type="text" id="interface" class="form-control validate" name="interface">
+																		<label data-error="wrong" data-success="right" for="orangeForm-name">Interface</label>
+																</div>
+																<div class="md-form mb-5">
+																		<i class="fas fa-user prefix grey-text"></i>
+																		<input type="text" id="description" class="form-control validate" name="description">
+																		<label data-error="wrong" data-success="right" for="orangeForm-name">Description</label>
+																</div>
+																<div class="md-form mb-5">
+																		<i class="fas fa-user prefix grey-text"></i>
+																		<input type="text" id="snmpIndex" class="form-control validate" name="snmpIndex">
+																		<label data-error="wrong" data-success="right" for="orangeForm-name">SNMP Index</label>
+																</div>
+														</div>
+														<div class="modal-footer d-flex justify-content-center">
+																<button class="btn btn-deep-orange" name="add_host">Add Node</button>
+														</div>
+												</div>
+										</form>
+								</div>
+						</div>
+
+						<div class="text-center m-0 p-0 d-flex justify-content-start">
+								<a href="" class="btn btn-default btn-rounded btn-sm" data-toggle="modal"
+										data-target="#add_node">Add Node
+										<i class="fas fa-plus"></i>
+								</a>
+						</div>
+
+
 <table class="table table-sm" id="all_nodes_table">
 		<thead>
 				<tr>
@@ -30,6 +86,7 @@ $result = mysqli_query($conn,"select tbl_host.hostname,
 				</tr>
 		</thead>
 		<tbody>
+
 
 <?php
 
@@ -59,7 +116,6 @@ while($row = mysqli_fetch_array($result))
 		echo "</tr>";
 }
 mysqli_close($conn);
-
 ?>
 		</tbody>
 </table>

@@ -22,6 +22,9 @@ $page = explode(".",explode("/",$_SERVER["SCRIPT_NAME"])[3])[0];
 												echo '<li class="nav-item ',($page =='reasons'? 'active':''),'">
 																<a class="nav-link" href="reasons.php">Reasons</a>
 															</li>';
+												echo '<li class="nav-item ',($page =='hostlist'? 'active':''),'">
+																<a class="nav-link" href="hostlist.php">Host List</a>
+															</li>';
 										}
 										?>
 										<li class="nav-item <?php echo($page =='nodelist'? 'active':'')?>">

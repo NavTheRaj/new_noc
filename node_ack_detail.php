@@ -9,11 +9,15 @@ $tbl_node = get_node($conn,$tbl_ack['nid']);
 $tbl_subReason = get_subReason($conn,$tbl_ack['subReasonId']);
 $tbl_user = get_user($conn,$tbl_ack['ack_by']);
 $host = get_host($conn,$tbl_node['hid']);
+
+include("nav.php");
+include("sub_menu.php");
 ?>
+
 
 <div class="container mt-5 ">
 		<center>
-				<h1 class="my-2">Node Ack Detail <?php if($result['node_status']==2)echo "[Resolved]" ?></h1>
+				<h1 class="my-2">Node Ack Detail <?php if($tbl_ack['node_status']==2)echo "[Resolved]" ?></h1>
 		</center>
 
 		<div class="py-2">
@@ -77,7 +81,7 @@ $host = get_host($conn,$tbl_node['hid']);
 				?>
 		</div>
 		<?php
-		if($result['node_status'] != '2'){
+		if($tbl_ack['node_status'] != 2){
 				include("comment_form.php");
 		}
 		?>

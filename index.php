@@ -12,16 +12,16 @@ header("location:login.php");
 						<div class="container-fluid">
 								<ul class="nav nav-tabs mb-3 " id="myTab" role="tablist">
 										<li class="nav-item">
-										<a class="nav-link active" id="ack-tab" data-toggle="tab" href="#ack_nodes-tab" role="tab" aria-controls="ack"
+										<a class="nav-link  active" id="home-tab" data-toggle="tab" href="#down_nodes-tab" role="tab" aria-controls="home" aria-selected="false">Down Nodes</a>
+										</li>
+										<li class="nav-item">
+										<a class="nav-link" id="ack-tab" data-toggle="tab" href="#ack_nodes-tab" role="tab" aria-controls="ack"
 												aria-selected="true">Ack Nodes
 										</a>
 										</li>
-										<li class="nav-item">
-										<a class="nav-link" id="home-tab" data-toggle="tab" href="#down_nodes-tab" role="tab" aria-controls="home" aria-selected="false">Down Nodes</a>
-										</li>
 								</ul>
 								<div class="tab-content" id="myTabContent">
-										<div class="tab-pane fade " id="down_nodes-tab" role="tabpanel" aria-labelledby="down_nodes-tab">
+										<div class="tab-pane fade  show active" id="down_nodes-tab" role="tabpanel" aria-labelledby="down_nodes-tab">
 												<div class="table-responsive">
 														<table class="table table-sm" id="down_nodes_table">
 																<thead>
@@ -42,7 +42,7 @@ header("location:login.php");
 														</table>
 												</div>
 										</div>
-										<div class="tab-pane fade show active" id="ack_nodes-tab" role="tabpanel" aria-labelledby="ack-tab">
+										<div class="tab-pane fade" id="ack_nodes-tab" role="tabpanel" aria-labelledby="ack-tab">
 												<div class="table-responsive">
 														<table class="table table-sm" id="acknowledge_table">
 																<thead>
